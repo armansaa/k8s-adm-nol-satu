@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: quiz2
+  namespace: default
+spec:
+  rules:
+  - host: blog.kenzo.com
+    http:
+      paths:
+      - backend:
+          serviceName: wordpress-kenzo
+          servicePort: 80
+        path: /
