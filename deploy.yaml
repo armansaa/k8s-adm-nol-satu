@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-site-26
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-ori
+  template:
+    metadata:
+      labels:
+        app: nginx-ori
+    spec:
+      containers:
+      - name: nginx-ori
+        image: nginx
+        ports:
+        - containerPort: 80

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: website-ingress
+  namespace: default
+spec:
+  rules:
+  - host: my.website.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-ori
+          servicePort: 80
+        path: /
